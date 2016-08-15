@@ -1,11 +1,10 @@
 class User < ActiveRecord::Base
   include BCrypt
 
-  has_many :subscriptions
-  has_many :channels, through: :subscriptions
+  # put assosiations here
 
-  validates_presence_of :email, :password
-  validates_uniqueness_of :email
+  validates_presence_of :username, :email, :password
+  validates_uniqueness_of :username, :email
 
   validate :validate_password
 
@@ -23,14 +22,6 @@ class User < ActiveRecord::Base
   def authenticate(password)
     self.password == password
   end
-
-  def total_per_month
-      self.channels.map(&:price_per_month).reduce(:+)
-  end
-
-  # def subscribed?(channel)
-  #   self.subscriptions.map(&:channel_id).include?(channel.id)
-  # end
 
   private
 

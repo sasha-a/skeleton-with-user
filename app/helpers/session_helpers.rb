@@ -14,7 +14,7 @@ helpers do
     if logged_in?
       return true
     else
-      halt(404, "<h2>Access denied to you!!</h2>")
+      halt(404, "<h2>Please log in to view this info.</h2>")
     end
   end
 

@@ -2,8 +2,8 @@ get "/sessions/login" do
   erb :"/sessions/login"
 end
 
-# rout should be /session
-post "/sessions/login" do
+# rout should be /sessions
+post "/sessions" do
   @user = User.find_by(email: params['user'][:email])
 
   if @user && @user.authenticate(params['user'][:password])
