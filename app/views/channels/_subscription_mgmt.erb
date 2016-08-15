@@ -1,0 +1,13 @@
+<% if logged_in? %>
+
+<!-- I was trying to incorporate subscribed? method here -->
+    <form method="post" action="#">
+      <input type="hidden" name="_method" value="delete">
+      <input type="submit" value="Unsubscribe">
+    </form>
+
+    <form method="post" action="#">
+      <input type="submit" value="Subscribe">
+    </form>
+
+<% end %>

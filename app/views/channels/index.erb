@@ -1,0 +1,4 @@
+<h2>List of available channels:</h2>
+<% @channels.each do |channel| %>
+	<%= erb :"/channels/_show", locals: { channel_view: channel } %>
+<% end %>

@@ -1,0 +1,7 @@
+<h2><%= channel_view.name %></h2>
+
+<p><%= @channel.total_subscribers %> people are subscribed!</p>
+<p>Callgisn: <%= channel_view.callsign %></p>
+<p>Price per month: $<%= channel_view.price_per_month %></p>
+
+<%= erb :"/channels/_subscription_mgmt", locals: { channel: channel_view } %>

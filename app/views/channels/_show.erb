@@ -1,0 +1,4 @@
+<div class="channel_container">
+	<h3><a href="/channels/<%=channel_view.id%>"><%= channel_view.name %></a></h3>
+	<%= erb :"/channels/_subscription_mgmt", locals: { channel: channel_view } %>
+</div>
