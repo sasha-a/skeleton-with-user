@@ -6,7 +6,6 @@ helpers do
 	  # end
   end
 
-# does this need to be self?
   def logged_in?
     self.current_user != nil
   end
