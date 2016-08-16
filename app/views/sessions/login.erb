@@ -1,15 +1,10 @@
-<h2>Log in</h2>
-
-<% if @errors %>
-  <% @errors.each do |error| %>
-  <%= erb :"/_error", locals: { error: error } %>
-  <% end %>
-<% end %>
-
-<form method="post" action="/sessions/login">
-  <label for="email">Email:</label>
-  <input type="email" name="user[email]"><br>
-  <label for="password">Password:</label>
+<form action="/sessions/new" method="POST">
+  <h2>Log In</h2>
+  <label for="username">username</label>
+  <input type="text" name="user[username]">
+  <br>
+  <br>
+  <label for="password">password</label>
   <input type="password" name="user[password]">
-  <input type="submit" value="Log In">
+  <input class="t-light-green" type="submit" value="Log in">
 </form>

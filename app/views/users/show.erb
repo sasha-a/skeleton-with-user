@@ -1,5 +1,1 @@
-<h2><%= @user.first_name %>'s profile</h2>
-<p>Your total per month: $<%= @user.total_per_month %></p>
-<% @user.channels.each do |channel| %>
-<%= erb :"/channels/_show", locals: { channel_view: channel } %>
-<% end %>
+<p><%= @user.username %>'s profile</p>

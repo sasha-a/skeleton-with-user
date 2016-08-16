@@ -6,17 +6,23 @@ gem 'pg'
 # Sinatra driver
 gem 'sinatra'
 gem 'sinatra-contrib'
-gem 'thin'
 
-gem 'activesupport', "~>4.2"
-gem 'activerecord', "~>4.2"
+gem 'activesupport', '~>4.2.0'
+gem 'activerecord', '~>4.2.0'
 
 gem 'rake'
-gem 'bcrypt'
 
+gem 'rack', '1.5.2'
 gem 'shotgun'
 
-group :development, :test do
-  gem 'faker'
-  gem 'rspec'
+group :test do
+  gem 'shoulda-matchers'
+  gem 'rack-test'
+  gem 'rspec', '~>3.0'
+  gem 'capybara'
+  gem 'database_cleaner'
+  gem 'factory_girl'
+  gem 'faker', '~>1.6.6'
 end
+
+gem 'bcrypt'
