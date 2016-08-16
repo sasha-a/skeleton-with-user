@@ -1,26 +1,33 @@
 require 'bcrypt'
-
 class User < ActiveRecord::Base
-  has_many :restaurants
-  has_many :reviews
+  include BCrypt
 
-  validates :username, :email, presence: true, uniqueness: true
-  validates :hashed_password, presence: true
+  validates_presence_of :username, :email, :password
+  validates_uniqueness_of :username, :email
 
+  validate :validate_password
+
+  # users.password_hash in the database is a :string
   def password
-    @password ||= BCrypt::Password.new(hashed_password)
+    @password ||= Password.new(hashed_password)
   end
 
   def password=(new_password)
-    @password = BCrypt::Password.create(new_password)
-     self.hashed_password = @password
+    @raw_password = new_password
+    @password = Password.create(new_password)
+    self.hashed_password = @password
   end
 
-  def authenticate(plain_text_password)
-    self.password == plain_text_password
+  def authenticate(password)
+    self.password == password
   end
 
-  def has_restaurants?
-    self.restaurants.length > 0
+  private
+  def validate_password
+    if @raw_password.length == 0
+      errors.add(:password, "is required")
+    elsif @raw_password.length < 6
+      errors.add(:password, "must be longer than 6 characters")
+    end
   end
 end

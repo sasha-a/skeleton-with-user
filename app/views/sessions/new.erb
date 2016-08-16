@@ -1,0 +1,13 @@
+<%= erb :_errors %>
+<form class="form-signin" action="/sessions/new" method="POST">
+  <h2>Sign in</h2>
+  <label for="username">username</label>
+  <input type="text" name="user[username]" placeholder="username" required autofocus>
+  <br>
+  <br>
+  <label for="password">password</label>
+  <input type="password" name="user[password]" placeholder="Password" required>
+  <input class="t-light-green" type="submit" value="Sign in">
+</form>
+
+

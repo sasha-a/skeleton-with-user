@@ -6,8 +6,8 @@ User.delete_all
 
 usernames = Faker::StarWars.species
 random_user_id = [1, 2, 3]
-random_restaurant_id = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-random_rating = [1, 2, 3, 4, 5]
+# random_restaurant_id = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+# random_rating = [1, 2, 3, 4, 5]
 
 usernames.map do |username|
   User.create!( :username => username.downcase,
